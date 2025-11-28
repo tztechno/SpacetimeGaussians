@@ -1,4 +1,5 @@
 #setup_fixed3.sh
+
 #!/bin/bash
 set -e # エラーが発生した場合、スクリプトの実行を即座に停止します
 
@@ -62,18 +63,19 @@ pip install -e thirdparty/mmcv -v
 echo "--- 10. Gaussian Splatting カスタム拡張機能のビルド ---"
 echo "    (この処理には数分かかる場合があります)"
 
-# -e フラグを使って開発モードでインストール
+# --no-build-isolation を使ってビルド環境の隔離を無効化
+# これにより、既にインストールされているPyTorchが使用されます
 echo "    - gaussian_rasterization_ch3 をビルド中..."
-pip install -v -e thirdparty/gaussian_splatting/submodules/gaussian_rasterization_ch3
+pip install -v -e thirdparty/gaussian_splatting/submodules/gaussian_rasterization_ch3 --no-build-isolation
 
 echo "    - gaussian_rasterization_ch9 をビルド中..."
-pip install -v -e thirdparty/gaussian_splatting/submodules/gaussian_rasterization_ch9
+pip install -v -e thirdparty/gaussian_splatting/submodules/gaussian_rasterization_ch9 --no-build-isolation
 
 echo "    - forward_lite をビルド中..."
-pip install -v -e thirdparty/gaussian_splatting/submodules/forward_lite
+pip install -v -e thirdparty/gaussian_splatting/submodules/forward_lite --no-build-isolation
 
 echo "    - forward_full をビルド中..."
-pip install -v -e thirdparty/gaussian_splatting/submodules/forward_full
+pip install -v -e thirdparty/gaussian_splatting/submodules/forward_full --no-build-isolation
 
 # --- 11. NumPy互換性修正 ---
 echo "--- 11. NumPy互換性の確認と修正 ---"
