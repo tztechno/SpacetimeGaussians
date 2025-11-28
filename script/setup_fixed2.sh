@@ -54,7 +54,7 @@ pip install -e thirdparty/mmcv -v
 
 # --- 6. Simple-KNNのインストール ---
 echo "--- 7. Simple-KNNのインストール ---"
-pip install simple-knn
+pip install git+https://github.com/cameronosmith/simple-knn.git
 
 
 # --- 7. Gaussian Splatting カスタム拡張機能のビルド ---
