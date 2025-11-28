@@ -42,15 +42,6 @@ echo "--- 6. 基本的なPythonパッケージのインストール ---"
 pip install opencv-python natsort scipy kornia plyfile Pillow tqdm
 
 
-# --- 7. Gaussian Splatting カスタム拡張機能のビルド ---
-echo "--- 8. Gaussian Splatting カスタム拡張機能のビルド ---"
-echo "    (この処理には数分かかる場合があります)"
-
-pip install thirdparty/gaussian_splatting/submodules/gaussian_rasterization_ch3
-pip install thirdparty/gaussian_splatting/submodules/gaussian_rasterization_ch9
-pip install thirdparty/gaussian_splatting/submodules/forward_lite
-pip install thirdparty/gaussian_splatting/submodules/forward_full
-
 # --- 8. MMCVのインストール ---
 echo "--- 9. MMCVのインストール (時間がかかります) ---"
 pip install -e thirdparty/mmcv -v
@@ -59,6 +50,16 @@ pip install -e thirdparty/mmcv -v
 # --- 6. Simple-KNNのインストール ---
 echo "--- 7. Simple-KNNのインストール ---"
 pip install git+https://github.com/camenduru/simple-knn.git
+
+
+# --- 7. Gaussian Splatting カスタム拡張機能のビルド ---
+echo "--- 8. Gaussian Splatting カスタム拡張機能のビルド ---"
+echo "    (この処理には数分かかる場合があります)"
+
+pip install thirdparty/gaussian_splatting/submodules/gaussian_rasterization_ch3
+pip install thirdparty/gaussian_splatting/submodules/gaussian_rasterization_ch9
+pip install thirdparty/gaussian_splatting/submodules/forward_lite
+pip install thirdparty/gaussian_splatting/submodules/forward_full
 
 
 # --- 9. NumPy互換性修正 ---
