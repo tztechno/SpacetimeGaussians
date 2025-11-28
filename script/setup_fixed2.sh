@@ -37,9 +37,9 @@ pip install torch torchvision torchaudio
 # --- 4. ビルドツールのインストール ---
 echo "--- 5. Ninjaビルドシステムのインストール ---"
 # Install system dependencies
-!apt-get install -y build-essential ninja-build
+apt-get install -y build-essential ninja-build
 # Install Python dependencies
-!pip install ninja packaging wheel
+pip install ninja packaging wheel
 
 
 # --- 5. 基本的なPythonパッケージのインストール ---
