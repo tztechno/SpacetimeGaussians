@@ -40,6 +40,8 @@ python -c "import torch; print(f'PyTorch version: {torch.__version__}'); print(f
 # --- 5. ビルド用Pythonパッケージのインストール ---
 echo "--- 5. ビルド用Pythonパッケージのインストール ---"
 pip install ninja packaging wheel
+sudo apt-get update
+sudo apt-get install -y build-essential ninja-build
 
 # --- 6. 基本的なPythonパッケージのインストール ---
 echo "--- 6. 基本的なPythonパッケージのインストール ---"
@@ -53,7 +55,9 @@ export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
 
 # --- 8. Simple-KNNのインストール ---
 echo "--- 8. Simple-KNNのインストール ---"
-pip install simple-knn
+wget https://github.com/yoyo-nb/simple-knn/archive/refs/heads/master.zip -O simple-knn.zip
+cd simple-knn-master
+pip install --no-build-isolation .
 
 # --- 9. MMCVのインストール ---
 echo "--- 9. MMCVのインストール (時間がかかります) ---"
