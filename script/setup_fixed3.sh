@@ -58,6 +58,7 @@ echo "--- 8. Simple-KNNのインストール ---"
 wget https://github.com/yoyo-nb/simple-knn/archive/refs/heads/master.zip -O simple-knn.zip
 cd simple-knn-master
 pip install --no-build-isolation .
+os.chdir('/content/SpacetimeGaussians')
 
 # --- 9. MMCVのインストール ---
 echo "--- 9. MMCVのインストール (時間がかかります) ---"
