@@ -55,10 +55,31 @@ export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
 
 # --- 8. Simple-KNNのインストール ---
 echo "--- 8. Simple-KNNのインストール ---"
-wget https://github.com/yoyo-nb/simple-knn/archive/refs/heads/master.zip -O simple-knn.zip
-cd simple-knn-master
+echo "--- 8. Installing Simple-KNN from local ZIP ---"
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+cd "$SCRIPT_DIR"
+
+if [ ! -f simple-knn-main.zip ]; then
+    echo "ERROR: simple-knn-main.zip が script フォルダにありません"
+    exit 1
+fi
+
+TMP_DIR="$SCRIPT_DIR/simple-knn-tmp"
+
+rm -rf "$TMP_DIR"
+
+mkdir -p "$TMP_DIR"
+unzip -q simple-knn-main.zip -d "$TMP_DIR"
+
+cd "$TMP_DIR/simple-knn-main"
+
 pip install --no-build-isolation .
-os.chdir('/content/SpacetimeGaussians')
+
+cd "$SCRIPT_DIR"
+rm -rf "$TMP_DIR"
+
+echo "--- Simple-KNN installation completed ---"
 
 # --- 9. MMCVのインストール ---
 echo "--- 9. MMCVのインストール (時間がかかります) ---"
